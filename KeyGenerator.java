@@ -3,7 +3,7 @@ import java.nio.charset.*;
 import java.io.*;
 import java.security.SecureRandom;
 import java.math.BigInteger;
-//import java.nio.file.StandardOpenOption;
+import java.io.RandomAccessFile;
 public class KeyGenerator{
 
 	public KeyGenerator(){
@@ -21,10 +21,11 @@ public class KeyGenerator{
 				Files.write(keyfile, randombytes, StandardOpenOption.APPEND);
 				templength = templength - BUFFER_SIZE;
 			}
-
+			
 		}catch (Exception e) {
 			System.out.println("file io error(in key generation).");
 		}
+		
 	}
 
 	private byte[] randombytes;
